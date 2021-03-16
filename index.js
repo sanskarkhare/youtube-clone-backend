@@ -4,34 +4,16 @@ const cors = require('cors');
 
 const PORT = 5000;
 const db = require("./models");
-const { User } = require("./models");
 
 app.use(express.json());
 app.use(cors());
 
-app.post("/signin", (req, res) => {
-    const name = req.body.name;
-    const email = req.body.email;
-    const googleId = req.body.googleId;
-    const channelName = req.body.channelName;
-    const profilePictureurl = req.body.imageUrl;
-
-    User.create({
-        name: name,
-        email:email,
-        googleId: googleId,
-        channelName: channelName,
-        profilePictureurl: profilePictureurl,
-    }).catch((err) => {
-        console.log(err);
-    })
-
-    res.send("inserted into database")
-})
+const userRoute = require('./routes/User');
+app.use("/user", userRoute);
 
 
 db.sequelize.sync().then((req) => {
     app.listen(PORT, () => (
-        console.log(`server running on port $(PORT)...`)
+        console.log(`server running on port $(PORT)`)
     ))
 })
