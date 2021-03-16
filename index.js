@@ -13,11 +13,15 @@ app.post("/signin", (req, res) => {
     const name = req.body.name;
     const email = req.body.email;
     const googleId = req.body.googleId;
+    const channelName = req.body.channelName;
+    const profilePictureurl = req.body.imageUrl;
 
     User.create({
         name: name,
         email:email,
         googleId: googleId,
+        channelName: channelName,
+        profilePictureurl: profilePictureurl,
     }).catch((err) => {
         console.log(err);
     })
