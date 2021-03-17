@@ -26,9 +26,9 @@ module.exports = ( sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true,
-            // validate: {
-            //     notEmpty:false
-            // },
+            validate: {
+                notEmpty:false
+            },
         },
         profilePictureUrl: {
             type: DataTypes.STRING,
