@@ -1,7 +1,18 @@
 const express = require('express');
 const router = express.Router();
-
 const { User } = require('../models');
+
+
+
+router.get('/:id', async (req, res) => {
+    const id = req.params.id;
+    const response = await User.findAll({
+        where: {
+            googleId: id,
+        },
+    })
+    res.send(response);
+})
 
 router.post('/', (req, res) => {
     const name = req.body.name;

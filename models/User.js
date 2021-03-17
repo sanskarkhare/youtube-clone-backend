@@ -26,13 +26,13 @@ module.exports = ( sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true,
-            validate: {
-                notEmpty:true
-            },
+            // validate: {
+            //     notEmpty:false
+            // },
         },
         profilePictureUrl: {
             type: DataTypes.STRING,
-            allowNull: true,
+            allowNull: false,
             unique: true,
             validate: {
                 notEmpty:true
