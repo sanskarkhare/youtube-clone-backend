@@ -11,6 +11,9 @@ app.use(cors());
 const userRoute = require('./routes/User');
 app.use("/user", userRoute);
 
+const uploadRoute = require('./routes/Upload');
+app.use("/upload", uploadRoute);
+
 
 db.sequelize.sync().then((req) => {
     app.listen(PORT, () => (
